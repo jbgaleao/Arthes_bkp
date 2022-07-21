@@ -16,3 +16,8 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.camposEdicao {
+    padding-right: 0px;
+    padding-left: 24px;
+}
