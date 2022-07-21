@@ -22,7 +22,7 @@ namespace Arthes.DATA.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("Arthes.DATA.Models.RevistaModel", b =>
+            modelBuilder.Entity("Arthes.DATA.Models.ModelRevista", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -30,17 +30,23 @@ namespace Arthes.DATA.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("AnoEdicao")
+                    b.Property<int?>("AnoEdicao")
                         .HasColumnType("int");
+
+                    b.Property<DateTime?>("DataAlteracao")
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime>("DataInclusao")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("MesEdicao")
+                    b.Property<int?>("MesEdicao")
                         .HasColumnType("int");
 
-                    b.Property<int>("NumeroEdicao")
+                    b.Property<int?>("NumeroEdicao")
                         .HasColumnType("int");
+
+                    b.Property<byte[]>("Photo")
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<string>("Tema")
                         .HasColumnType("nvarchar(max)");

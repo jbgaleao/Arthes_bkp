@@ -1,6 +1,6 @@
 ﻿namespace Arthes.DATA.Interfaces.Repositories
 {
-    public interface IBaseRepository<T> where T : class
+    public interface IRepositoryBase<T> where T : class
     {
         List<T> GetAll();
         T GetById(params object[] variavel);
