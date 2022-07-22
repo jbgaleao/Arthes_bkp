@@ -7,19 +7,19 @@
 
 <h1>Revista</h1>
 <hr />
-<h4>Criar Registro</h4>
+<h4>Editar Registro</h4>
 <br />
-<form asp-action="Create">
+<form asp-action="Update">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <div class="card">
 
         <div class="card-header">
-            Dados da Revista
+            Editando a Revista
         </div>
 
         <div class="card-body row">
             <div class="col-md-12 row camposEdicao">
-
+                @Html.HiddenFor(Model => Model.Id)
                 <div class="form-group">
                     <label asp-for="Tema" class="control-label"></label>
                     <input asp-for="Tema" class="form-control" />
@@ -66,3 +66,4 @@
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
     }
+

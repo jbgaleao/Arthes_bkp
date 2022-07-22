@@ -20,10 +20,12 @@ namespace Arthes.DATA.Repositories
         {
             return _contexto.Set<T>().ToList();
         }
+
         public T GetById(params object[] variavel)
         {
             return _contexto.Set<T>().Find(variavel);
         }
+
         public T Insert(T objeto)
         {
             _contexto.Set<T>().Add(objeto);
@@ -33,6 +35,7 @@ namespace Arthes.DATA.Repositories
             }
             return objeto;
         }
+
         public T Update(T objeto)
         {
             _contexto.Entry(objeto).State = EntityState.Modified;
@@ -42,6 +45,7 @@ namespace Arthes.DATA.Repositories
             }
             return objeto;
         }
+
         public void Delete(T objeto)
         {
             _contexto.Set<T>().Remove(objeto);
@@ -50,15 +54,19 @@ namespace Arthes.DATA.Repositories
                 _contexto.SaveChanges();
             }
         }
+
         public void Delete(params object[] variavel)
         {
             object obj = GetById(variavel);
             Delete((T)obj);
         }
+
+
         public void Savechanges()
         {
             _contexto.SaveChanges();
         }
+
         public void Dispose()
         {
             _contexto.Dispose();

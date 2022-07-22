@@ -8,9 +8,10 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a class="btn btn-success" asp-action="Create"><i class="fa fa-book"></i>&ensp; Nova Revista</a>
 </p>
-<table id="tabRevista" class="table">
+<br />
+<table id="tabRevista" class="table table-striped table-hover">
     <thead>
         <tr>
             <th>
@@ -28,13 +29,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Photo)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DataInclusao)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DataAlteracao)
-            </th>
-            <th></th>
+            <th>Ações</th>
         </tr>
     </thead>
     <tbody>
@@ -57,15 +52,33 @@
                     @Html.DisplayFor(modelItem => item.Photo)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.DataInclusao)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DataAlteracao)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-edit"></i></a>
+                    <a class="btn btn-secondary" asp-action="Details" asp-route-id="@item.Id"><i class="fa fa-search"></i></a>
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-trash"></i></a>
+
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#DeleteModal">
+                        Launch demo modal
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="DeleteModal" tabindex="-1" aria-labelledby="DeleteModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Exclusão de Registro</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    Deseja excluir a Revista ?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </td>
             </tr>
         }
@@ -84,4 +97,5 @@
             });
         });
     </script>
+    <script src="https://kit.fontawesome.com/e2c43ebad4.js" crossorigin="anonymous"></script>
 }

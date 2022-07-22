@@ -1,0 +1,49 @@
+﻿@model Arthes.DATA.Models.ModelRevista
+
+@{
+    ViewData["Title"] = "Detalhes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Detalhes</h1>
+
+<div>
+    <h4>ModelRevista</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Tema)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Tema)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NumeroEdicao)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NumeroEdicao)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MesEdicao)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MesEdicao)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AnoEdicao)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AnoEdicao)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Photo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Photo)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
