@@ -1,4 +1,5 @@
-﻿@model Arthes.DATA.Models.ModelRevista
+﻿@using Arthes.DATA.Enums
+@model Arthes.DATA.Models.ModelRevista
 
 @{
     ViewData["Title"] = "Create";
@@ -16,48 +17,42 @@
         <div class="card-header">
             Editando a Revista
         </div>
+        @Html.HiddenFor(Model => Model.Id)
 
         <div class="card-body row">
-            <div class="col-md-12 row camposEdicao">
-                @Html.HiddenFor(Model => Model.Id)
-                <div class="form-group">
-                    <label asp-for="Tema" class="control-label"></label>
-                    <input asp-for="Tema" class="form-control" />
-                    <span asp-validation-for="Tema" class="text-danger"></span>
+            <div class="card-body row">
+                <div class="col-md-12 row camposEdicao">
+                    <div class="form-group col-md-6">
+                        <label asp-for="Tema" class="control-label"></label>
+                        <input asp-for="Tema" class="form-control" />
+                        <span asp-validation-for="Tema" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label asp-for="NumeroEdicao" class="control-label">Número Edição</label>
+                        <input asp-for="NumeroEdicao" class="form-control" />
+                        <span asp-validation-for="NumeroEdicao" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label asp-for="MesEdicao" class="control-label">Mês Edição</label>
+                        <select asp-for="MesEdicao" class="form-control" asp-items="Html.GetEnumSelectList<Mes>()"></select>
+                        <span asp-validation-for="MesEdicao" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label asp-for="AnoEdicao" class="control-label">Ano Edição</label>
+                        <input asp-for="AnoEdicao" class="form-control" />
+                        <span asp-validation-for="AnoEdicao" class="text-danger"></span>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-12 row camposEdicao">
-                <div class="form-group col-md-2">
-                    <label asp-for="NumeroEdicao" class="control-label">Número Edição</label>
-                    <input asp-for="NumeroEdicao" class="form-control" />
-                    <span asp-validation-for="NumeroEdicao" class="text-danger"></span>
-                </div>
-                <div class="form-group col-md-2">
-                    <label asp-for="MesEdicao" class="control-label">Mês Edição</label>
-                    <input asp-for="MesEdicao" class="form-control" />
-                    <span asp-validation-for="MesEdicao" class="text-danger"></span>
-                </div>
-                <div class="form-group col-md-2">
-                    <label asp-for="AnoEdicao" class="control-label">Ano Edição</label>
-                    <input asp-for="AnoEdicao" class="form-control" />
-                    <span asp-validation-for="AnoEdicao" class="text-danger"></span>
-                </div>
-                <div class="form-group col-md-6">
-                    <label asp-for="Photo" class="control-label"></label>
-                    <input type="file" asp-for="Photo" class="form-control" />
-                    <span asp-validation-for="Photo" class="text-danger"></span>
-                </div>
-            </div>
 
-            <p></p>
-            <div class="col-md-12 row camposEdicao">
-                <div class="form-group col-md-6">
-                    <button class="btn btn-secondary p-2"><i class="fa-solid fa-floppy-disk"></i>&ensp;Gravar</button>&ensp;
-                    <a class="btn btn-warning p-2" asp-action="Index"><i class="fa-solid fa-arrow-rotate-left"></i>&ensp;Voltar</a>
+                <p></p>
+                <div class="col-md-12 row camposEdicao">
+                    <div class="form-group col-md-6">
+                        <button class="btn btn-secondary p-2"><i class="fa-solid fa-floppy-disk"></i>&ensp;Gravar</button>&ensp;
+                        <a class="btn btn-warning p-2" asp-action="Index"><i class="fa-solid fa-arrow-rotate-left"></i>&ensp;Voltar</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 </form>
 
 

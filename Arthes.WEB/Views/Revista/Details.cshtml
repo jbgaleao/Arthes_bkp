@@ -18,13 +18,10 @@
 
         <div class="card-body row">
             <div class="col-md-12 row camposEdicao">
-
-                <div class="form-group">
+                <div class="form-group  col-md-6">
                     <label asp-for="Tema" class="control-label"></label>
                     <input disabled asp-for="Tema" class="form-control" />
                 </div>
-            </div>
-            <div class="col-md-12 row camposEdicao">
                 <div class="form-group col-md-2">
                     <label asp-for="NumeroEdicao" class="control-label">Número Edição</label>
                     <input disabled asp-for="NumeroEdicao" class="form-control" />
@@ -37,17 +34,38 @@
                     <label asp-for="AnoEdicao" class="control-label">Ano Edição</label>
                     <input disabled asp-for="AnoEdicao" class="form-control" />
                 </div>
-                <div class="form-group col-md-6">
-                    <label asp-for="Photo" class="control-label"></label>
-                    <input disabled type="file" asp-for="Photo" class="form-control" />
-                </div>
             </div>
 
             <p></p>
             <div class="col-md-12 row camposEdicao">
                 <div class="form-group col-md-6">
-                    <a class="btn btn-primary p-2" asp-action="Edit" asp-route-id="@Model?.Id"><i class="fa fa-edit"></i>&ensp;Editar</a>
-                    <a class="btn btn-warning p-2" asp-action="Index"><i class="fa-solid fa-arrow-rotate-left"></i>&ensp;Voltar</a>
+                    <a class="btn btn-primary p-2" asp-action="Edit" asp-route-id="@Model?.Id"><i class="fa fa-edit"></i>&emsp; Editar</a>
+                    <a class="btn btn-warning p-2" asp-action="Index"><i class="fa-solid fa-arrow-rotate-left"></i>&emsp; Voltar</a>
+                    @*<a class="btn btn-danger" asp-action="Delete" asp-route-id="@Model?.Id"><i class="fa fa-trash"></i>&ensp;Excluir</a>*@
+
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#DeleteModal-@Model?.Id">
+                        <i class="fa fa-trash"> </i>&emsp; Excluir
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="DeleteModal-@Model?.Id" tabindex="-1" aria-labelledby="DeleteModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="DeleteModalLabel">Exclusão de Registro</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    Deseja excluir a Revista: <i class="text-danger">@Model?.Tema ?</i>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
+                                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@Model?.Tema">Sim</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

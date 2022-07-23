@@ -8,6 +8,12 @@ namespace Arthes.WEB.Controllers
     public class RevistaController : Controller
     {
         private readonly RevistaService oRevistaService = new RevistaService();
+        private readonly DateTime _dataAtual = DateTime.Now;
+        private DateTime DataAtual
+        {
+            get { return _dataAtual; }
+        }
+
 
         public IActionResult Index()
         {
@@ -17,6 +23,9 @@ namespace Arthes.WEB.Controllers
 
         public IActionResult Create()
         {
+            //ViewData["MesAtual"] = DataAtual.Month;
+            //ViewData["AnoAtual"] = DataAtual.Year;
+
             return View();
         }
 
