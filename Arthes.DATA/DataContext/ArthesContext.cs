@@ -1,4 +1,5 @@
-﻿using Arthes.DATA.Models;
+﻿
+using Arthes.DATA.Models;
 
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;

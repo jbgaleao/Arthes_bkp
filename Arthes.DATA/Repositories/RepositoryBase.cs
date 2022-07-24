@@ -1,5 +1,5 @@
 ﻿using Arthes.DATA.Data;
-using Arthes.DATA.Interfaces.Repositories;
+using Arthes.DATA.Interfaces;
 
 using Microsoft.EntityFrameworkCore;
 

@@ -1,4 +1,4 @@
-﻿namespace Arthes.DATA.Interfaces.Repositories
+﻿namespace Arthes.DATA.Interfaces
 {
     public interface IRepositoryBase<T> where T : class
     {

@@ -1,7 +1,7 @@
-﻿using Arthes.DATA.Interfaces.Repositories;
+﻿
 using Arthes.DATA.Models;
 
-namespace Arthes.DATA.Interfaces
+namespace Arthes.DATA.Interfaces.RepositoryModels
 {
     public interface IRepositoryRevista : IRepositoryBase<ModelRevista>
     {

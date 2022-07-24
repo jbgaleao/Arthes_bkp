@@ -1,4 +1,4 @@
-﻿using Arthes.DATA.Repositories;
+﻿using Arthes.DATA.Repositories.RepositoryModels;
 
 namespace Arthes.DATA.Services
 {
