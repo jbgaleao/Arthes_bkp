@@ -16,6 +16,10 @@ namespace Arthes.DATA.Models
         public decimal Altura { get; set; }
 
 
+        public int RevistaId { get; set; }
+        public ModelRevista _ModelRevista { get; set; }
+
+
 
     }
 }

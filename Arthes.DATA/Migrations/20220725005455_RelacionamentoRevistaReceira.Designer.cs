@@ -3,6 +3,7 @@ using Arthes.DATA.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Arthes.DATA.Migrations
 {
     [DbContext(typeof(ArthesContext))]
-    partial class ArthesContextModelSnapshot : ModelSnapshot
+    [Migration("20220725005455_RelacionamentoRevistaReceira")]
+    partial class RelacionamentoRevistaReceira
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

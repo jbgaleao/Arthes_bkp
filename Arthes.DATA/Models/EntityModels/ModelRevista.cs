@@ -20,5 +20,8 @@ namespace Arthes.DATA.Models
         [Range(2000, 2030, ErrorMessage = "Ano deve estar entre 200 e 2030")]
         public int AnoEdicao { get; set; }
 
+
+        public ICollection<ModelReceita>? ListaReceita { get; set; }
+
     }
 }

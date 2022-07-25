@@ -30,5 +30,6 @@ namespace Arthes.DATA.Data
         }
 
         public virtual DbSet<ModelRevista>? REVISTAS { get; set; }
+        public virtual DbSet<ModelReceita>? RECEITAS { get; set; }
     }
 }

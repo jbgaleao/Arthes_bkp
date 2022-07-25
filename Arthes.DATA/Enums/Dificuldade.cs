@@ -1,6 +1,6 @@
 ﻿namespace Arthes.DATA.Enums
 {
-    public enum Dificuldade
+    public enum Dificuldade : int
     {
         FACIL = 1,
         MEDIO = 2,
