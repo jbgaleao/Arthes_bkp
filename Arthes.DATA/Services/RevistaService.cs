@@ -1,14 +1,14 @@
-﻿using Arthes.DATA.Repositories.RepositoryModels;
+﻿using Arthes.DATA.Repositories.ModelsRepository;
 
 namespace Arthes.DATA.Services
 {
     public class RevistaService
     {
-        public RepositoryRevista oRepositoryRevista { get; set; }
+        public RevistaRepository oRepositoryRevista { get; set; }
 
         public RevistaService()
         {
-            oRepositoryRevista = new RepositoryRevista();
+            oRepositoryRevista = new RevistaRepository();
         }
     }
 }

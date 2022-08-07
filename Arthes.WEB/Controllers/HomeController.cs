@@ -1,8 +1,8 @@
-﻿using Arthes.WEB.Models;
+﻿using System.Diagnostics;
+
+using Arthes.WEB.Models;
 
 using Microsoft.AspNetCore.Mvc;
-
-using System.Diagnostics;
 
 namespace Arthes.WEB.Controllers
 {

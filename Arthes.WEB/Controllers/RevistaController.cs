@@ -1,4 +1,4 @@
-﻿using Arthes.DATA.Models;
+﻿using Arthes.DATA.Models.ModelsEntity;
 using Arthes.DATA.Services;
 
 using Microsoft.AspNetCore.Mvc;
@@ -17,7 +17,7 @@ namespace Arthes.WEB.Controllers
 
         public IActionResult Index()
         {
-            List<ModelRevista> oModelRevista = oRevistaService.oRepositoryRevista.GetAll();
+            List<Revista> oModelRevista = oRevistaService.oRepositoryRevista.GetAll();
             return View(oModelRevista);
         }
 
@@ -30,7 +30,7 @@ namespace Arthes.WEB.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(ModelRevista rev)
+        public IActionResult Create(Revista rev)
         {
             if (!ModelState.IsValid)
             {
@@ -42,18 +42,18 @@ namespace Arthes.WEB.Controllers
 
         public IActionResult Details(int Id)
         {
-            ModelRevista oRevista = oRevistaService.oRepositoryRevista.GetById(Id);
+            Revista oRevista = oRevistaService.oRepositoryRevista.GetById(Id);
             return View(oRevista);
         }
 
         public IActionResult Edit(int Id)
         {
-            ModelRevista oRevista = oRevistaService.oRepositoryRevista.GetById(Id);
+            Revista oRevista = oRevistaService.oRepositoryRevista.GetById(Id);
             return View(oRevista);
         }
 
         [HttpPost]
-        public IActionResult Update(ModelRevista rev)
+        public IActionResult Update(Revista rev)
         {
             if (!ModelState.IsValid)
             {

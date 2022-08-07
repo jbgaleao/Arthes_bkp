@@ -1,5 +1,5 @@
 ﻿using Arthes.DATA.Enums;
-using Arthes.DATA.Models;
+using Arthes.DATA.Models.ModelsEntity;
 using Arthes.DATA.Services;
 
 using Microsoft.AspNetCore.Mvc;
@@ -12,22 +12,22 @@ namespace Arthes.WEB.Controllers
         public IActionResult Index()
         {
             AdicionaReceita();
-            List<ModelReceita> oModelReceita = oReceitaService.oRepositoryReceita.GetAll();
+            List<Receita> oModelReceita = oReceitaService.oRepositoryReceita.GetAll();
             return View(oModelReceita);
         }
 
         private void AdicionaReceita()
         {
-            ModelReceita receita = new ModelReceita()
+            Receita receita = new Receita()
             {
                 Altura = 25,
-                Dificuldade = Dificuldade.FACIL,
+                NivelDificuldade = Dificuldade.FACIL,
                 Nome = "Renas",
                 RevistaId = 6,
-                _ModelRevista = new ModelRevista()
+                Revista = new Revista()
                 {
                     Tema = "Natal 2021",
-                    AnoEdicao = 2000,
+                    AnoEdicao = "2000",
                     MesEdicao = Mes.DEZEMBRO,
                     NumeroEdicao = 1
                 }

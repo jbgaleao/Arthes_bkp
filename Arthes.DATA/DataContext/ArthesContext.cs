@@ -1,35 +1,58 @@
-﻿
-using Arthes.DATA.Models;
+﻿using Arthes.DATA.Models.ModelsEntity;
 
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 
-namespace Arthes.DATA.Data
+namespace Arthes.DATA.DataContext
 {
-    public class ArthesContext : DbContext
+    public partial class ArthesContext : DbContext
     {
         public ArthesContext()
         {
         }
 
-        public ArthesContext(DbContextOptions<ArthesContext> options) : base(options)
+        public ArthesContext(DbContextOptions<ArthesContext> options)
+            : base(options)
         {
         }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public virtual DbSet<Receita> Receita { get; set; }
+        public virtual DbSet<Revista> Revista { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            if (!optionsBuilder.IsConfigured)
+            modelBuilder.Entity<Receita>(entity =>
             {
-                IConfigurationRoot configuration = new ConfigurationBuilder()
-                   .SetBasePath(Directory.GetCurrentDirectory())
-                   .AddJsonFile("appsettings.json")
-                   .Build();
-                var connectionString = configuration.GetConnectionString("ArthesConn");
-                optionsBuilder.UseSqlServer(connectionString);
-            }
+                entity.Property(e => e.Altura).HasColumnType("decimal(18, 0)");
+
+                entity.Property(e => e.Nome)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.HasOne(d => d.Revista)
+                    .WithMany(p => p.Receita)
+                    .HasForeignKey(d => d.RevistaId)
+                    .HasConstraintName("FK_Receita_Revista");
+            });
+
+            modelBuilder.Entity<Revista>(entity =>
+            {
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
+                entity.Property(e => e.AnoEdicao)
+                    .IsRequired()
+                    .HasMaxLength(10)
+                    .IsFixedLength();
+
+                entity.Property(e => e.Tema)
+                    .IsRequired()
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+            });
+
+            OnModelCreatingPartial(modelBuilder);
         }
 
-        public virtual DbSet<ModelRevista>? REVISTAS { get; set; }
-        public virtual DbSet<ModelReceita>? RECEITAS { get; set; }
+        partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
     }
 }

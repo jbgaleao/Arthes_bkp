@@ -1,16 +1,16 @@
-﻿using Arthes.DATA.Data;
+﻿using Arthes.DATA.DataContext;
 using Arthes.DATA.Interfaces;
 
 using Microsoft.EntityFrameworkCore;
 
 namespace Arthes.DATA.Repositories
 {
-    public class RepositoryBase<T> : IRepositoryBase<T>, IDisposable where T : class
+    public class BaseRepository<T> : IBaseRepository<T>, IDisposable where T : class
     {
         protected readonly ArthesContext _contexto;
         public bool _SaveChanges = true;
 
-        public RepositoryBase(bool saveChanges = true)
+        public BaseRepository(bool saveChanges = true)
         {
             _SaveChanges = saveChanges;
             _contexto = new ArthesContext();
